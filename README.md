@@ -21,3 +21,6 @@ Open `index.html` in a browser.
 6. Wait for the Pages URL to appear in Settings → Pages.
 
 No build step or framework is required. Google Fonts are used for typography; the page otherwise works as a static site.
+
+
+This anniversary edition also includes an interactive moonflower garden and rotating reassurance notes for long-distance days.

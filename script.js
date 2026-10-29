@@ -80,3 +80,53 @@ if (hugButton) {
     animation.scrollIntoView({ behavior: 'smooth', block: 'center' });
   });
 }
+
+
+// Tiny moonflower garden: each tap grows another bloom.
+const bloomButton = document.getElementById('bloomButton');
+if (bloomButton) {
+  const flowers = [...document.querySelectorAll('.flower-stems span')];
+  const bloomCount = document.getElementById('bloomCount');
+  const bloomMessage = document.getElementById('bloomMessage');
+  const bloomLines = [
+    'One bloom for your smile. ♡',
+    'Two blooms: one for you, one for me missing you.',
+    'A little reminder that distance cannot make you less loved.',
+    'This flower is for every ordinary day I want to spend with you.',
+    'A whole tiny garden, because one reason to love you is never enough.',
+    'A flower for the days I miss you, and another for the day I get to see you again. ♡',
+    'This one is a promise to keep choosing you, even from far away. 🌙'
+  ];
+  let blooms = 0;
+  bloomButton.addEventListener('click', () => {
+    const flower = flowers[blooms % flowers.length];
+    flower.classList.remove('bloomed');
+    void flower.offsetWidth;
+    flower.classList.add('bloomed');
+    blooms++;
+    bloomCount.textContent = String(blooms);
+    bloomMessage.textContent = bloomLines[(blooms - 1) % bloomLines.length];
+    bloomButton.textContent = blooms >= flowers.length ? 'Grow another moonflower ♡' : 'Plant another moonflower ♡';
+  });
+}
+
+// A little pocket note for the days when the miles feel extra long.
+const noteButton = document.getElementById('noteButton');
+if (noteButton) {
+  const pocketNote = document.getElementById('pocketNote');
+  const pocketNotes = [
+    'You do not have to earn reassurance. You can ask for it, any time. I am on your team. ♡',
+    'If I could teleport for one minute, I would use it to hold your hand and steal one of your smiles.',
+    'We are allowed to miss each other and still have good days. Both things can be true.',
+    'You are not “too much” for needing time, attention, or a reminder that you are loved.',
+    'Today, we only have to do today. One call, one message, one little step closer. 🌙',
+    'Reminder from your idiot: you are beautiful, you are precious to me, and yes, I mean it. No appeals accepted.'
+  ];
+  let noteIndex = 0;
+  noteButton.addEventListener('click', () => {
+    pocketNote.hidden = false;
+    pocketNote.textContent = pocketNotes[noteIndex % pocketNotes.length];
+    noteIndex++;
+    noteButton.textContent = 'Another tiny reminder ♡';
+  });
+}
