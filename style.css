@@ -57,3 +57,25 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 /* Keep the “my favourite human” note away from both faces. */
 @media(max-width:800px){.note-one{top:42%;left:-14px;max-width:220px;padding:10px 13px;font-size:.92rem}}
 @media(max-width:420px){.note-one{top:44%;left:-8px;max-width:190px;font-size:.82rem;padding:9px 11px}}
+
+
+.hug-button{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:8px auto 0;padding:13px 22px;border:1px solid #e98eae88;border-radius:999px;background:linear-gradient(135deg,#f7c6d8,#d9c8ff);color:#302345;font:600 .95rem var(--sans);cursor:pointer;box-shadow:0 8px 24px #e98eae22;transition:transform .2s ease,box-shadow .2s ease}
+.hug-button:hover{transform:translateY(-2px);box-shadow:0 12px 28px #e98eae44}
+.hug-animation{position:relative;overflow:hidden;margin:22px auto 8px;max-width:440px;padding:25px 18px 18px;border-radius:20px;background:linear-gradient(145deg,#fff0f5,#f0eaff);color:#352344;animation:hugReveal .45s ease both}
+.hug-emoji{font-size:5rem;line-height:1.2;animation:hugSqueeze 1.2s ease-in-out infinite;transform-origin:center}
+.hug-emoji span{display:inline-block;filter:drop-shadow(0 6px 8px #7c4d8a22)}
+.hug-caption{font-family:var(--serif);font-style:italic;font-size:1.08rem;margin:12px 0 0;color:#6b3d69}
+.hug-hearts span{position:absolute;bottom:28px;left:calc(50% - 10px);font-size:1.4rem;color:#e98eae;animation:floatHugHeart 2.2s ease-in infinite;opacity:0}
+.hug-hearts span:nth-child(2){animation-delay:.4s;left:22%;color:#d16c98}
+.hug-hearts span:nth-child(3){animation-delay:.8s;left:72%;color:#9c83e8}
+.hug-hearts span:nth-child(4){animation-delay:1.2s;left:35%;color:#d16c98}
+.hug-hearts span:nth-child(5){animation-delay:1.6s;left:62%;color:#9c83e8}
+.big-love-signoff{margin:24px 0 0!important;font-family:var(--serif);font-size:clamp(1.45rem,4vw,2.2rem);font-weight:700;line-height:1.35;color:#b95d89!important;text-shadow:0 2px 18px #e98eae22;animation:loveGlow 2.8s ease-in-out infinite}
+@keyframes hugSqueeze{0%,100%{transform:scale(1) rotate(-2deg)}25%{transform:scale(1.12) rotate(2deg)}50%{transform:scale(1.04) rotate(-1deg)}75%{transform:scale(1.12) rotate(1deg)}}
+@keyframes floatHugHeart{0%{transform:translateY(20px) scale(.65) rotate(-10deg);opacity:0}25%{opacity:1}100%{transform:translateY(-105px) scale(1.15) rotate(15deg);opacity:0}}
+@keyframes hugReveal{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes loveGlow{0%,100%{text-shadow:0 2px 12px #e98eae22}50%{text-shadow:0 2px 24px #e98eae77}}
+@media(prefers-reduced-motion:reduce){.hug-emoji,.hug-hearts span,.big-love-signoff,.hug-animation{animation:none!important}.hug-hearts span{opacity:1;position:static;margin:0 5px}}
+
+.hug-replay .hug-emoji{animation:hugSqueeze 1.2s ease-in-out infinite}
+.hug-replay .hug-hearts span{animation-name:floatHugHeart}

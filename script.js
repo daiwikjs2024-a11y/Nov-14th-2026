@@ -65,3 +65,18 @@ document.getElementById('secretButton').addEventListener('click', () => {
   document.getElementById('secretButton').textContent = message.hidden ? 'Psst… there’s one more thing' : 'Okay, that’s enough cuteness ♡';
   if(!message.hidden) message.scrollIntoView({behavior:'smooth', block:'center'});
 });
+
+
+const hugButton = document.getElementById('hugButton');
+if (hugButton) {
+  hugButton.addEventListener('click', () => {
+    const animation = document.getElementById('hugAnimation');
+    animation.hidden = false;
+    // Restart the animation each time the button is pressed.
+    animation.classList.remove('hug-replay');
+    void animation.offsetWidth;
+    animation.classList.add('hug-replay');
+    hugButton.textContent = 'One more hug? 🫂';
+    animation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
