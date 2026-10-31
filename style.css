@@ -122,3 +122,9 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 @media(prefers-reduced-motion:reduce){.hero-sticker,.flower-moon{animation:none}}
 
 #bloomButton:focus-visible,#noteButton:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+
+/* Playfully possessive, hopelessly-in-love details */
+.mine-note{display:inline-block;margin:18px 0 0;padding:10px 16px;border:1px solid #e98eae66;border-radius:999px;background:#ffffff0b;color:#f4c8d9;font-size:.7rem;font-weight:700;letter-spacing:.13em;box-shadow:0 8px 24px #0002;transform:rotate(-2deg)}
+.mine-note span{color:var(--gold);font-size:1rem;margin-left:5px}
+.possessive-seal{margin:22px auto 10px!important;max-width:520px;padding:13px 18px;border:1px dashed #e98eae99;border-radius:14px;color:#f4c8d9!important;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-align:center}
+.boyfriend-disclaimer{max-width:760px;margin:0 auto 45px;padding:14px 20px;text-align:center;color:#d6cde0;font-family:var(--serif);font-style:italic;font-size:1rem}

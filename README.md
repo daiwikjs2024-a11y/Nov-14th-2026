@@ -24,3 +24,5 @@ No build step or framework is required. Google Fonts are used for typography; th
 
 
 This anniversary edition also includes an interactive moonflower garden and rotating reassurance notes for long-distance days.
+
+Latest personality update: more playful, affectionate “hopelessly hers” boyfriend energy, with clear emphasis on choosing each other freely and lovingly.
