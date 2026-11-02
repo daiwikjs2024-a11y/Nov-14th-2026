@@ -17,7 +17,7 @@
     <a class="brand" href="#home" aria-label="Back to top">☾ <span>our little universe</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#miss-you">I miss you</a><a href="#moonflowers">Moonflowers</a><a href="#pasta">Pasta date</a><a href="#distance">Long distance</a><a href="#reasons">Reasons</a><a href="#quiz">Quiz</a>
+      <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#miss-you">I miss you</a><a href="#moonflowers">Moonflowers</a><a href="#pasta">Pasta date</a><a href="#distance">Long distance</a><a href="#reasons">Reasons</a><a href="#her-dream">Your dream</a><a href="#quiz">Quiz</a>
     </div>
   </nav>
 
@@ -215,6 +215,22 @@
         </div>
         <p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p>
         <button class="button primary quiz-next" id="quizNext" hidden>Next question →</button>
+      </div>
+    </section>
+
+
+    <section class="section dream-section" id="her-dream">
+      <div class="dream-card">
+        <p class="eyebrow">A QUESTION I REALLY WANT TO KNOW</p>
+        <h2>Prithi, what is your <em>true dream?</em></h2>
+        <p class="section-lead">Not what people expect from you. Not what sounds impressive. What does your heart truly wish for? Tell me anything — even the little details. I want to know. ♡</p>
+        <form id="dreamForm" class="dream-form">
+          <label for="dreamAnswer">Your dream, in your own words</label>
+          <textarea id="dreamAnswer" name="dream" rows="5" maxlength="5000" required placeholder="My true dream is..."></textarea>
+          <button class="button primary" id="dreamSubmit" type="submit">Send my dream to Daiwik ♡</button>
+          <p class="dream-status" id="dreamStatus" role="status" aria-live="polite"></p>
+        </form>
+        <p class="dream-privacy">Only Daiwik receives your answer by email. Write from your heart; there is no wrong answer.</p>
       </div>
     </section>
 

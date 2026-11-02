@@ -128,3 +128,23 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 .mine-note span{color:var(--gold);font-size:1rem;margin-left:5px}
 .possessive-seal{margin:22px auto 10px!important;max-width:520px;padding:13px 18px;border:1px dashed #e98eae99;border-radius:14px;color:#f4c8d9!important;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-align:center}
 .boyfriend-disclaimer{max-width:760px;margin:0 auto 45px;padding:14px 20px;text-align:center;color:#d6cde0;font-family:var(--serif);font-style:italic;font-size:1rem}
+
+
+/* A private little space for Prithi's dream */
+.dream-section { padding-top: 4rem; padding-bottom: 4rem; }
+.dream-card {
+  width: min(760px, 100%); margin: 0 auto; padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--line, rgba(120, 80, 90, .2)); border-radius: 24px;
+  background: var(--card, rgba(255,255,255,.72)); box-shadow: 0 18px 55px rgba(70, 35, 50, .08);
+}
+.dream-form { display: grid; gap: .85rem; margin-top: 1.5rem; }
+.dream-form label { font-weight: 650; }
+.dream-form textarea {
+  width: 100%; min-height: 150px; resize: vertical; padding: 1rem 1.1rem;
+  border: 1px solid var(--line, #d8c5cb); border-radius: 14px;
+  background: rgba(255,255,255,.8); color: inherit; font: inherit; line-height: 1.6;
+}
+.dream-form textarea:focus { outline: 2px solid var(--accent, #b96c83); outline-offset: 2px; }
+.dream-form button:disabled { opacity: .7; cursor: wait; }
+.dream-status { min-height: 1.5em; margin: 0; font-weight: 600; }
+.dream-privacy { margin: 1rem 0 0; font-size: .88rem; opacity: .72; }

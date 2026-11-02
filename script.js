@@ -133,3 +133,47 @@ if (noteButton) {
     noteButton.textContent = 'Another tiny reminder ♡';
   });
 }
+
+
+// Prithi's answer is emailed to Daiwik through FormSubmit.
+// The recipient must activate FormSubmit once using the verification email.
+const dreamForm = document.getElementById('dreamForm');
+if (dreamForm) {
+  const dreamStatus = document.getElementById('dreamStatus');
+  const dreamSubmit = document.getElementById('dreamSubmit');
+  dreamForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const dreamAnswer = document.getElementById('dreamAnswer').value.trim();
+    if (!dreamAnswer) {
+      dreamStatus.textContent = 'Write a little something first, my rabbit. ♡';
+      return;
+    }
+    dreamSubmit.disabled = true;
+    dreamSubmit.textContent = 'Sending your dream…';
+    dreamStatus.textContent = '';
+    const payload = new FormData();
+    payload.append('dream', dreamAnswer);
+    payload.append('_subject', "Prithi's true dream 💌");
+    payload.append('_template', 'table');
+    payload.append('_captcha', 'false');
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/daiwik.j.s.2024@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: payload
+      });
+      const result = await response.json();
+      if (!response.ok || result.success !== 'true') {
+        throw new Error(result.message || 'The message could not be sent.');
+      }
+      dreamForm.reset();
+      dreamStatus.textContent = 'Your dream has been sent to Daiwik. Thank you for trusting me with it. ♡';
+      dreamSubmit.textContent = 'Sent with love ♡';
+    } catch (error) {
+      dreamStatus.textContent = 'It did not send just yet. Please check your connection and try again.';
+      dreamSubmit.disabled = false;
+      dreamSubmit.textContent = 'Try sending again ♡';
+    }
+  });
+}
+
