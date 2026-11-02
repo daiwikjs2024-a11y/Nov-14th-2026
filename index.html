@@ -286,5 +286,39 @@
   <script src="script.js"></script>
 
     <p class="tiny-note possessive-joke">A tiny, completely reasonable thought from your boyfriend: I hope any guy who thinks of you more than friends explodes. ♡</p>
+
+  <div class="music-welcome" id="musicWelcome" role="dialog" aria-modal="true" aria-labelledby="musicTitle">
+    <div class="music-welcome-card">
+      <p class="eyebrow">BEFORE YOU ENTER OUR LITTLE UNIVERSE ♡</p>
+      <h2 id="musicTitle">Pick the song for <em>our moment.</em></h2>
+      <p class="music-intro">Prithi, choose what you want playing in the background. Daiwik added both your favourites and his. You can change it anytime. ♡</p>
+      <div class="music-choice-group">
+        <p class="music-group-label">PRITHI'S FAVOURITES</p>
+        <div class="music-choices">
+          <button type="button" data-track="isaikaruvi">Isaikaruvi</button>
+          <button type="button" data-track="manase">Manase — Giftson</button>
+          <button type="button" data-track="maname">Maname — Giftson</button>
+          <button type="button" data-track="thudhigal">Thudhigal Oyaadhu — John Jebaraj</button>
+          <button type="button" data-track="stillwaters">Still Waters</button>
+          <button type="button" data-track="amazinggod">What an Amazing God</button>
+        </div>
+      </div>
+      <div class="music-choice-group">
+        <p class="music-group-label">DAIWIK'S FAVOURITES</p>
+        <div class="music-choices">
+          <button type="button" data-track="oliviacover">Love Me Not — Olivia Dean cover</button>
+          <button type="button" data-track="rude">Rude</button>
+          <button type="button" data-track="shutup">Shut Up and Dance</button>
+        </div>
+      </div>
+      <p class="music-help" id="musicHelp" aria-live="polite">Choose a song to start the music. Your browser may ask you to allow playback.</p>
+      <button type="button" class="music-skip" id="musicSkip">Enter without music for now</button>
+    </div>
+  </div>
+  <div class="music-player" id="musicPlayer" hidden>
+    <iframe id="musicFrame" title="Background music" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <button type="button" id="changeMusic" aria-label="Change background song">♫ Change song</button>
+  </div>
+
 </body>
 </html>

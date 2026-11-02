@@ -177,3 +177,65 @@ if (dreamForm) {
   });
 }
 
+
+
+// First-visit song picker. Playback starts only after the visitor chooses a track.
+const musicWelcome = document.getElementById('musicWelcome');
+const musicFrame = document.getElementById('musicFrame');
+const musicPlayer = document.getElementById('musicPlayer');
+const musicHelp = document.getElementById('musicHelp');
+const trackInfo = {
+  thudhigal: { title: 'Thudhigal Oyaadhu — John Jebaraj', id: 'LJKoFkjhFWk' },
+  rude: { title: 'Rude — MAGIC!', id: 'PIh2xe4jnpk' },
+  shutup: { title: 'Shut Up and Dance — WALK THE MOON', id: '6JCLY0Rlx6Q' },
+  oliviacover: { title: 'Love Me Not — Olivia Dean cover', id: 'bZPw6uRBang' },
+  isaikaruvi: { title: 'Isaikaruvi', search: 'Isaikaruvi song' },
+  manase: { title: 'Manase — Giftson', search: 'Manase Giftson song' },
+  maname: { title: 'Maname — Giftson', search: 'Maname Giftson song' },
+  stillwaters: { title: 'Still Waters', search: 'Still Waters worship song' },
+  amazinggod: { title: 'What an Amazing God', search: 'What an Amazing God worship song' }
+};
+function openMusicPicker() {
+  musicWelcome.hidden = false;
+  musicWelcome.classList.add('is-open');
+}
+function closeMusicPicker() {
+  musicWelcome.classList.remove('is-open');
+  musicWelcome.hidden = true;
+  try { localStorage.setItem('prithiMusicPickerSeen', 'yes'); } catch (_) {}
+}
+document.querySelectorAll('[data-track]').forEach(button => {
+  button.addEventListener('click', () => {
+    const track = trackInfo[button.dataset.track];
+    if (!track) return;
+    if (track.id) {
+      musicFrame.src = `https://www.youtube-nocookie.com/embed/${track.id}?autoplay=1&loop=1&playlist=${track.id}&rel=0`;
+      musicPlayer.hidden = false;
+      closeMusicPicker();
+      musicHelp.textContent = `Now playing: ${track.title}`;
+    } else {
+      musicHelp.innerHTML = '';
+      const message = document.createElement('span');
+      message.textContent = `${track.title} — choose the exact version on YouTube, then share its link with Daiwik so he can add direct background playback.`;
+      const link = document.createElement('a');
+      link.href = `https://www.youtube.com/results?search_query=${encodeURIComponent(track.search)}`;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = ' Find this song on YouTube ↗';
+      musicHelp.append(message, link);
+    }
+  });
+});
+document.getElementById('musicSkip').addEventListener('click', closeMusicPicker);
+document.getElementById('changeMusic').addEventListener('click', openMusicPicker);
+
+// Show the welcome chooser once per browser; the floating control can reopen it later.
+try {
+  if (localStorage.getItem('prithiMusicPickerSeen') === 'yes') {
+    musicWelcome.hidden = true;
+  } else {
+    openMusicPicker();
+  }
+} catch (_) {
+  openMusicPicker();
+}

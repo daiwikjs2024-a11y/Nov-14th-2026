@@ -130,21 +130,100 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 .boyfriend-disclaimer{max-width:760px;margin:0 auto 45px;padding:14px 20px;text-align:center;color:#d6cde0;font-family:var(--serif);font-style:italic;font-size:1rem}
 
 
-/* A private little space for Prithi's dream */
-.dream-section { padding-top: 4rem; padding-bottom: 4rem; }
+/* A private little space for Prithi's dream — matched to the midnight/moonflower palette */
+.dream-section { padding-top: 5rem; padding-bottom: 5rem; }
 .dream-card {
-  width: min(760px, 100%); margin: 0 auto; padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid var(--line, rgba(120, 80, 90, .2)); border-radius: 24px;
-  background: var(--card, rgba(255,255,255,.72)); box-shadow: 0 18px 55px rgba(70, 35, 50, .08);
+  width: min(820px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  border: 1px solid rgba(244, 200, 217, .28);
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(233, 142, 174, .15), transparent 42%),
+    linear-gradient(145deg, #282044 0%, #211b42 58%, #30213f 100%);
+  box-shadow: 0 24px 70px rgba(5, 3, 18, .38), inset 0 1px 0 rgba(255,255,255,.06);
 }
-.dream-form { display: grid; gap: .85rem; margin-top: 1.5rem; }
-.dream-form label { font-weight: 650; }
+.dream-card h2 {
+  max-width: 720px;
+  margin-bottom: 1.1rem;
+  font-size: clamp(2.45rem, 6vw, 4.4rem);
+  line-height: 1.08;
+  color: var(--cream);
+}
+.dream-card .section-lead {
+  max-width: 680px;
+  margin: 0 0 2.2rem;
+  color: #e4ddec;
+}
+.dream-form { display: grid; gap: .9rem; margin-top: 1.6rem; }
+.dream-form label { color: var(--cream); font-weight: 700; }
 .dream-form textarea {
-  width: 100%; min-height: 150px; resize: vertical; padding: 1rem 1.1rem;
-  border: 1px solid var(--line, #d8c5cb); border-radius: 14px;
-  background: rgba(255,255,255,.8); color: inherit; font: inherit; line-height: 1.6;
+  display: block;
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  padding: 1.1rem 1.2rem;
+  border: 1.5px solid rgba(244, 200, 217, .62);
+  border-radius: 16px;
+  background: #fff8f1;
+  color: #28213d;
+  font: inherit;
+  line-height: 1.65;
+  box-shadow: inset 0 2px 8px rgba(40, 33, 61, .06);
 }
-.dream-form textarea:focus { outline: 2px solid var(--accent, #b96c83); outline-offset: 2px; }
+.dream-form textarea::placeholder { color: #8b8190; opacity: 1; }
+.dream-form textarea:focus {
+  outline: 3px solid rgba(233, 142, 174, .28);
+  outline-offset: 3px;
+  border-color: #e98eae;
+}
+.dream-form button { width: 100%; min-height: 56px; margin-top: .15rem; }
 .dream-form button:disabled { opacity: .7; cursor: wait; }
-.dream-status { min-height: 1.5em; margin: 0; font-weight: 600; }
-.dream-privacy { margin: 1rem 0 0; font-size: .88rem; opacity: .72; }
+.dream-status { min-height: 1.5em; margin: .25rem 0 0; color: #f4c8d9; font-weight: 650; }
+.dream-privacy { margin: 1.7rem 0 0; color: #d6cde0; font-size: .88rem; }
+@media (max-width: 600px) {
+  .dream-section { padding: 3.5rem 18px; }
+  .dream-card { border-radius: 20px; }
+  .dream-card h2 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
+  .dream-form textarea { min-height: 145px; }
+}
+
+
+/* Welcome music picker */
+.music-welcome[hidden], .music-player[hidden] { display: none !important; }
+.music-welcome {
+  position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center;
+  padding: 22px; background: rgba(14, 10, 30, .82); backdrop-filter: blur(12px);
+}
+.music-welcome-card {
+  width: min(720px, 100%); max-height: min(90vh, 900px); overflow: auto;
+  padding: clamp(1.35rem, 4vw, 2.5rem); border-radius: 26px;
+  border: 1px solid rgba(244, 200, 217, .3);
+  background: linear-gradient(145deg, #282044, #211b42 62%, #30213f);
+  color: #fff8f1; box-shadow: 0 28px 90px rgba(0,0,0,.48);
+}
+.music-welcome-card h2 { font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.08; margin: .3rem 0 1rem; }
+.music-welcome-card h2 em { color: #e9a0bd; }
+.music-intro { color: #e4ddec; line-height: 1.65; }
+.music-choice-group { margin-top: 1.35rem; }
+.music-group-label { color: #e9a0bd; font-size: .75rem; font-weight: 800; letter-spacing: .14em; }
+.music-choices { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .65rem; }
+.music-choices button {
+  min-height: 48px; padding: .75rem .9rem; border: 1px solid rgba(244,200,217,.38);
+  border-radius: 13px; background: rgba(255,248,241,.08); color: #fff8f1;
+  font: inherit; text-align: left; cursor: pointer; transition: background .2s, border-color .2s, transform .2s;
+}
+.music-choices button:hover, .music-choices button:focus-visible {
+  background: rgba(233,160,189,.2); border-color: #e9a0bd; transform: translateY(-1px);
+}
+.music-help { min-height: 2.5em; margin: 1rem 0 .6rem; color: #e4ddec; font-size: .9rem; line-height: 1.5; }
+.music-help a { color: #f4c8d9; text-decoration: underline; }
+.music-skip { display: block; margin: .5rem auto 0; border: 0; background: transparent; color: #d6cde0; text-decoration: underline; cursor: pointer; font: inherit; }
+.music-player { position: fixed; right: 16px; bottom: 16px; z-index: 1000; display: flex; align-items: center; gap: 8px; }
+.music-player iframe { width: 1px; height: 1px; border: 0; }
+.music-player button { border: 1px solid rgba(244,200,217,.45); border-radius: 999px; padding: .65rem 1rem; background: #282044; color: #fff8f1; box-shadow: 0 8px 24px rgba(0,0,0,.2); cursor: pointer; font: inherit; }
+@media (max-width: 560px) {
+  .music-welcome { padding: 12px; }
+  .music-welcome-card { max-height: 94vh; border-radius: 20px; }
+  .music-choices { grid-template-columns: 1fr; }
+}
