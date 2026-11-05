@@ -187,3 +187,63 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   .dream-card h2 { font-size: clamp(2.2rem, 10vw, 3.2rem); }
   .dream-form textarea { min-height: 145px; }
 }
+
+
+/* Kintsugi — a gentle note of care before the letter */
+.kintsugi-section { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.kintsugi-card {
+  position: relative;
+  overflow: hidden;
+  width: min(850px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.6rem, 5vw, 3.4rem);
+  border: 1px solid rgba(224, 183, 111, .38);
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 92% 4%, rgba(224, 183, 111, .16), transparent 36%),
+    linear-gradient(145deg, #292143 0%, #211b3d 58%, #30213f 100%);
+  color: #f8f0e9;
+  box-shadow: 0 24px 70px rgba(5, 3, 18, .28), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.kintsugi-card h2 {
+  max-width: 720px;
+  margin: .25rem 0 1.2rem;
+  color: #fff8f1;
+  font-size: clamp(2.25rem, 5.8vw, 4rem);
+  line-height: 1.08;
+}
+.kintsugi-card h2 em { color: #eec0d2; }
+.kintsugi-card p:not(.eyebrow) {
+  max-width: 740px;
+  color: #e6dce9;
+  line-height: 1.85;
+  margin: 1.05rem 0;
+}
+.kintsugi-card .eyebrow { color: #e5c78f; }
+.kintsugi-art {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .8rem 0 1.5rem;
+  color: #e5c78f;
+  font-size: 1.35rem;
+}
+.kintsugi-art span:nth-child(2) {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(229, 199, 143, .65);
+  border-radius: 50%;
+  color: #f0c5d5;
+  font-size: 1.25rem;
+}
+.kintsugi-card .kintsugi-signoff {
+  margin-top: 1.6rem;
+  color: #f0c5d5;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .kintsugi-section { padding: 3.5rem 18px; }
+  .kintsugi-card { border-radius: 20px; }
+}
