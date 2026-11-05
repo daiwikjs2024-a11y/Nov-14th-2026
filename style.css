@@ -247,3 +247,79 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   .kintsugi-section { padding: 3.5rem 18px; }
   .kintsugi-card { border-radius: 20px; }
 }
+
+
+/* Daiwik's flying dream — sunset gold over the site's midnight palette */
+.flying-dream-section { padding-top: 3rem; padding-bottom: 4.5rem; }
+.flying-dream-card {
+  position: relative;
+  overflow: hidden;
+  width: min(850px, 100%);
+  margin: 0 auto;
+  padding: clamp(1.6rem, 5vw, 3.4rem);
+  border: 1px solid rgba(239, 177, 133, .38);
+  border-radius: 26px;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(236, 151, 118, .2), transparent 38%),
+    linear-gradient(145deg, #292143 0%, #211b3d 58%, #35213e 100%);
+  color: #f8f0e9;
+  box-shadow: 0 24px 70px rgba(5, 3, 18, .28), inset 0 1px 0 rgba(255,255,255,.05);
+}
+.flying-dream-card h2 {
+  max-width: 740px;
+  margin: .25rem 0 1rem;
+  color: #fff8f1;
+  font-size: clamp(2.25rem, 5.8vw, 4rem);
+  line-height: 1.08;
+}
+.flying-dream-card h2 em { color: #f0c0cf; }
+.flying-dream-card .eyebrow { color: #f0c18f; }
+.flying-dream-card p:not(.eyebrow) {
+  max-width: 740px;
+  color: #e8deea;
+  line-height: 1.85;
+  margin: 1.05rem 0;
+}
+.flight-sky {
+  position: relative;
+  height: 105px;
+  margin: .7rem 0 1.4rem;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(240, 193, 143, .3);
+  background: linear-gradient(180deg, rgba(232, 153, 128, .12), rgba(232, 153, 128, 0));
+  border-radius: 16px;
+}
+.flight-sun {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  left: 18%;
+  bottom: 8px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffe0a8, #e99a83);
+  box-shadow: 0 0 38px rgba(240, 174, 137, .35);
+}
+.flight-plane {
+  position: absolute;
+  left: 54%;
+  top: 23px;
+  color: #f8d8d0;
+  font-size: 2.4rem;
+  transform: rotate(-7deg);
+}
+.flight-heart {
+  position: absolute;
+  left: 69%;
+  top: 13px;
+  color: #f0c0cf;
+  font-size: 1.4rem;
+}
+.flying-dream-card .flying-dream-signoff {
+  margin-top: 1.6rem;
+  color: #f0c0cf;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .flying-dream-section { padding: 2.5rem 18px 3.5rem; }
+  .flying-dream-card { border-radius: 20px; }
+}
