@@ -323,3 +323,13 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   .flying-dream-section { padding: 2.5rem 18px 3.5rem; }
   .flying-dream-card { border-radius: 20px; }
 }
+
+
+.instagram-note {
+  max-width: 680px;
+  margin: 1.15rem auto 0;
+  color: #e8deea;
+  font-size: .98rem;
+  line-height: 1.8;
+  text-align: center;
+}
