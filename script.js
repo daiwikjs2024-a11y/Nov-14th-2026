@@ -207,8 +207,19 @@ const flightButton = document.getElementById('flightButton');
 if (flightButton) {
   flightButton.addEventListener('click', () => {
     const flightMessage = document.getElementById('flightMessage');
+    const flightSky = document.querySelector('.flight-sky');
     flightMessage.hidden = !flightMessage.hidden;
     flightButton.textContent = flightMessage.hidden ? 'Take our little dream flight ✈' : 'Land safely, co-pilot ♡';
-    if (!flightMessage.hidden) flightMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (!flightMessage.hidden) {
+      if (flightSky) {
+        flightSky.classList.remove('taking-off');
+        // Restart the take-off animation every time she presses the button.
+        void flightSky.offsetWidth;
+        flightSky.classList.add('taking-off');
+      }
+      flightMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (flightSky) {
+      flightSky.classList.remove('taking-off');
+    }
   });
 }

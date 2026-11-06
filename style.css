@@ -285,6 +285,7 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   height: 105px;
   margin: .7rem 0 1.4rem;
   overflow: hidden;
+  isolation: isolate;
   border-bottom: 1px solid rgba(240, 193, 143, .3);
   background: linear-gradient(180deg, rgba(232, 153, 128, .12), rgba(232, 153, 128, 0));
   border-radius: 16px;
@@ -303,9 +304,51 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   position: absolute;
   left: 54%;
   top: 23px;
-  color: #f8d8d0;
+  z-index: 2;
+  color: #fff0e8;
   font-size: 2.4rem;
   transform: rotate(-7deg);
+  filter: drop-shadow(0 0 9px rgba(255, 220, 190, .55));
+  transform-origin: center;
+}
+.flight-sky::before,
+.flight-sky::after {
+  content: "";
+  position: absolute;
+  width: 76px;
+  height: 19px;
+  left: -90px;
+  border-radius: 50px;
+  background: rgba(255, 225, 218, .19);
+  box-shadow: 18px -9px 0 -2px rgba(255, 225, 218, .16), 36px 0 0 -3px rgba(255, 225, 218, .14);
+  animation: flightCloudDrift 19s linear infinite;
+}
+.flight-sky::before { top: 23px; }
+.flight-sky::after { top: 62px; animation-duration: 26s; animation-delay: -9s; opacity: .7; }
+.flight-sky.taking-off .flight-plane {
+  animation: planeTakeoff 4.2s cubic-bezier(.2,.65,.25,1) both;
+}
+.flight-sky.taking-off .flight-heart {
+  animation: heartTrail 4.2s ease-out both;
+}
+@keyframes flightCloudDrift {
+  from { translate: 0 0; }
+  to { translate: calc(100vw + 180px) 0; }
+}
+@keyframes planeTakeoff {
+  0% { left: 54%; top: 23px; transform: rotate(-7deg) scale(1); }
+  18% { left: 58%; top: 18px; transform: rotate(-12deg) scale(1.04); }
+  55% { left: 76%; top: -2px; transform: rotate(-18deg) scale(1.12); }
+  100% { left: 112%; top: -34px; transform: rotate(-20deg) scale(1.2); }
+}
+@keyframes heartTrail {
+  0%, 15% { opacity: 0; transform: scale(.6); }
+  35% { opacity: 1; transform: scale(1.15); }
+  100% { opacity: 0; transform: translate(34px,-28px) scale(.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flight-sky::before, .flight-sky::after { animation: none; }
+  .flight-sky.taking-off .flight-plane, .flight-sky.taking-off .flight-heart { animation: none; }
 }
 .flight-heart {
   position: absolute;
