@@ -100,13 +100,16 @@ if (bloomButton) {
     'A flower for the days I miss you, and another for the day I get to see you again. ♡',
     'This one is a promise to keep choosing you, even from far away. 🌙'
   ];
-  let blooms = 0;
+  let blooms = Number.parseInt(localStorage.getItem('prithiMoonflowerCount') || '0', 10) || 0;
+  if (bloomCount) bloomCount.textContent = String(blooms);
+  if (blooms > 0 && bloomMessage) bloomMessage.textContent = 'Our little garden remembers every flower you planted. ♡';
   bloomButton.addEventListener('click', () => {
     const flower = flowers[blooms % flowers.length];
     flower.classList.remove('bloomed');
     void flower.offsetWidth;
     flower.classList.add('bloomed');
     blooms++;
+    try { localStorage.setItem('prithiMoonflowerCount', String(blooms)); } catch (_) {}
     bloomCount.textContent = String(blooms);
     bloomMessage.textContent = bloomLines[(blooms - 1) % bloomLines.length];
     bloomButton.textContent = blooms >= flowers.length ? 'Grow another moonflower ♡' : 'Plant another moonflower ♡';
@@ -162,3 +165,50 @@ if (noteButton) {
   window.setInterval(updateRelationshipClock, 1000);
 })();
 
+
+
+// Little pop-up interruptions from a boyfriend who has absolutely no chill.
+(function boyfriendInterruptions() {
+  const panel = document.getElementById('boyfriendInterruption');
+  const message = document.getElementById('interruptionText');
+  const close = document.getElementById('dismissInterruption');
+  if (!panel || !message || !close) return;
+  const lines = [
+    'Excuse me. Just checking whether my favourite girl knows she is ridiculously loved. Carry on. ♡',
+    'BREAKING NEWS: Daiwik misses Prithi. More at 11. (Actually, more every 11 seconds.)',
+    'Hydration check, rabbit. Drink some water. This has been an official boyfriend announcement. 💧',
+    'Stop being cute for five minutes. I have things to do. ...Actually, never mind. Continue. 😭',
+    'Your daily reminder: you are pretty, precious, and mildly troublesome. A perfect combination. ♡',
+    'I was doing something important and then remembered your face. Look what you have done.'
+  ];
+  let timer;
+  function schedule() { timer = window.setTimeout(() => {
+    if (!document.hidden) { message.textContent = lines[Math.floor(Math.random() * lines.length)]; panel.hidden = false; panel.classList.remove('interrupt-pop'); void panel.offsetWidth; panel.classList.add('interrupt-pop'); }
+    schedule();
+  }, 55000); }
+  close.addEventListener('click', () => { panel.hidden = true; });
+  // First interruption comes after a little browsing time, never immediately on arrival.
+  schedule();
+})();
+
+// Open-when letters: one envelope at a time, because this boyfriend is dramatic.
+document.querySelectorAll('.open-letter-button').forEach(button => {
+  button.addEventListener('click', () => {
+    const target = document.getElementById(`letter-${button.dataset.letter}`);
+    if (!target) return;
+    const opening = target.hidden;
+    target.hidden = !opening;
+    button.textContent = opening ? 'Fold this letter ♡' : 'Open this letter ♡';
+  });
+});
+
+// Our future flight: a tiny interactive take-off moment.
+const flightButton = document.getElementById('flightButton');
+if (flightButton) {
+  flightButton.addEventListener('click', () => {
+    const flightMessage = document.getElementById('flightMessage');
+    flightMessage.hidden = !flightMessage.hidden;
+    flightButton.textContent = flightMessage.hidden ? 'Take our little dream flight ✈' : 'Land safely, co-pilot ♡';
+    if (!flightMessage.hidden) flightMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}

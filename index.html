@@ -17,7 +17,7 @@
     <a class="brand" href="#home" aria-label="Back to top">☾ <span>our little universe</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#miss-you">I miss you</a><a href="#moonflowers">Moonflowers</a><a href="#pasta">Pasta date</a><a href="#distance">Long distance</a><a href="#reasons">Reasons</a><a href="#kintsugi">A little reminder</a><a href="#her-dream">Your dream</a><a href="#my-dream">My dream</a><a href="#quiz">Quiz</a>
+      <a href="#story">Our story</a><a href="#memories">Memories</a><a href="#open-when">Open when…</a><a href="#miss-you">I miss you</a><a href="#moonflowers">Moonflowers</a><a href="#pasta">Pasta date</a><a href="#distance">Long distance</a><a href="#reasons">Reasons</a><a href="#kintsugi">A little reminder</a><a href="#her-dream">Your dream</a><a href="#my-dream">My dream</a><a href="#quiz">Quiz</a>
     </div>
   </nav>
 
@@ -169,6 +169,18 @@
       </div>
     </section>
 
+    <section class="section open-when-section" id="open-when">
+      <p class="eyebrow">LITTLE LETTERS, FOR LITTLE MOMENTS</p>
+      <h2>Open when… <em>you need your idiot.</em></h2>
+      <p class="section-lead">Pick whichever envelope matches your mood. Yes, I made you homework. Romantic homework. You're welcome. ♡</p>
+      <div class="open-when-grid">
+        <article class="open-letter"><span class="letter-emoji">🌧️</span><h3>You're having a bad day</h3><p class="letter-hint">For the days that feel a little too heavy.</p><button type="button" class="open-letter-button" data-letter="bad-day">Open this letter ♡</button><p class="open-letter-reveal" id="letter-bad-day" hidden>Hey, my rabbit. You don't have to fix everything today. Take a breath, drink some water, and be gentle with yourself. I'm proud of you, even on the days when you don't feel proud of yourself. And if you need me, call. I'll listen. No lectures. Okay, maybe one tiny lecture about eating properly. I love you. ♡</p></article>
+        <article class="open-letter"><span class="letter-emoji">🌙</span><h3>You can't fall asleep</h3><p class="letter-hint">A tiny goodnight from very far away.</p><button type="button" class="open-letter-button" data-letter="sleep">Open this letter ♡</button><p class="open-letter-reveal" id="letter-sleep" hidden>Close your eyes, silly girl. Imagine me holding your hand and telling you that tomorrow can wait until tomorrow. I hope your dreams are soft, your blanket is cosy, and you wake up feeling lighter. I'd say goodnight in person if I could. For now, here's a forehead kiss through the screen. Mwah. ♡</p></article>
+        <article class="open-letter"><span class="letter-emoji">🥺</span><h3>You miss me</h3><p class="letter-hint">Warning: contains an overly clingy boyfriend.</p><button type="button" class="open-letter-button" data-letter="miss">Open this letter ♡</button><p class="open-letter-reveal" id="letter-miss" hidden>I miss you too. Probably more than is reasonable, but when have I ever been reasonable about you? The distance is temporary; what I feel for you isn't. Save one hug for me, please. Actually, save approximately 900. I have a backlog. ♡</p></article>
+        <article class="open-letter"><span class="letter-emoji">💗</span><h3>You need a reminder</h3><p class="letter-hint">In case your brain is being mean to you.</p><button type="button" class="open-letter-button" data-letter="reminder">Open this letter ♡</button><p class="open-letter-reveal" id="letter-reminder" hidden>You are loved. You are important. You don't have to be cheerful, pretty, productive, or perfect to deserve love. I like you on your quiet days too. And yes, you're still pretty when you're being an absolute menace. Especially then. ♡</p></article>
+      </div>
+    </section>
+
     <section class="section moonflower-section" id="moonflowers">
       <div class="moonflower-art" aria-label="Interactive moonflower garden">
         <div class="flower-moon" aria-hidden="true">☾</div>
@@ -182,6 +194,7 @@
         <p>Tap the button and grow our tiny garden. Let each flower stand for a call, a laugh, a memory, a little reassurance, or a day closer to seeing each other again.</p>
         <p class="bloom-count">MOONFLOWERS GROWN: <span id="bloomCount">0</span></p>
         <p class="bloom-message" id="bloomMessage" aria-live="polite">The garden is waiting for its first flower. 🌙</p>
+        <p class="garden-tease">No watering needed. Just tap. Finally, a responsibility you can handle, rabbit. 😌</p>
         <button class="button primary" id="bloomButton" type="button">Grow our first moonflower ♡</button>
       </div>
     </section>
@@ -261,6 +274,7 @@
         <p>And obviously, I’ve already decided who’s coming with me. You. Right beside me while I’m flying, taking off just as the sun begins to set, cruising through those beautiful orange clouds with your hand in mine. You have no idea how many times I’ve imagined a life with you already.</p>
         <p>Then the sun goes down, the city lights begin to sparkle beneath us, and it’s just you and me up there, watching the world glow from above. I might even steal a kiss or two while we’re flying. Don’t worry, rabbit — I’ll keep my eyes on the sky. Mostly. 😌</p>
         <p>I’m determined to make this dream happen. And when that day finally comes, I hope you’ll be right there beside me — my favourite co-pilot, my favourite passenger, and the girl I’ll keep choosing at every altitude.</p>
+        <button class="button primary flight-button" id="flightButton" type="button">Take our little dream flight ✈</button><p class="flight-message" id="flightMessage" hidden>Cabin crew, prepare for take-off. Destination: a sunset, a million memories, and one very lucky pilot with his favourite girl beside him. Please keep your hands, feet, and complaints inside the aircraft. I know you have many. 😂♡</p>
         <p class="flying-dream-signoff">So yes, I want a plane. But more than that, I want all those sunsets, city lights, little kisses, and years of adventures with you. And no, you don't get to refuse your co-pilot duties. ♡</p>
       </div>
     </section>
@@ -328,6 +342,7 @@
 
   <footer><span>Made with too much love (and a suspicious amount of teasing)</span><strong>Daiwik ♡ Prithi · 14.11.2025</strong><a href="#home">back to our moon ↑</a></footer>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <aside class="boyfriend-interruption" id="boyfriendInterruption" hidden role="status" aria-live="polite"><span class="interruption-sparkle">✦</span><p id="interruptionText"></p><button type="button" id="dismissInterruption" aria-label="Dismiss message">×</button></aside>
   <script src="script.js"></script>
 
     <p class="tiny-note possessive-joke">A tiny, completely reasonable thought from your boyfriend: I hope any guy who thinks of you more than friends explodes. ♡</p>
