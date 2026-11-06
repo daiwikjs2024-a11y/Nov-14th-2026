@@ -133,3 +133,32 @@ if (noteButton) {
     noteButton.textContent = 'Another tiny reminder ♡';
   });
 }
+
+// Live relationship clock: starts at midnight on 14 November 2025 in the visitor's local timezone.
+(function startRelationshipClock() {
+  const daysEl = document.getElementById('loveDays');
+  const hoursEl = document.getElementById('loveHours');
+  const minutesEl = document.getElementById('loveMinutes');
+  const secondsEl = document.getElementById('loveSeconds');
+  if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+
+  const relationshipStart = new Date(2025, 10, 14, 0, 0, 0, 0);
+  const pad = value => String(value).padStart(2, '0');
+
+  function updateRelationshipClock() {
+    const elapsed = Math.max(0, Date.now() - relationshipStart.getTime());
+    const totalSeconds = Math.floor(elapsed / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    daysEl.textContent = days.toLocaleString();
+    hoursEl.textContent = pad(hours);
+    minutesEl.textContent = pad(minutes);
+    secondsEl.textContent = pad(seconds);
+  }
+
+  updateRelationshipClock();
+  window.setInterval(updateRelationshipClock, 1000);
+})();
+
