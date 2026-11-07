@@ -25,3 +25,6 @@ No build step or framework is required. Google Fonts are used for typography; th
 
 ## Live relationship clock
 The homepage includes a live counter from 14 November 2025 (midnight in each visitor’s local timezone), updating every second. No external service or setup is required.
+
+
+New photo added: `assets/holding-hands.jpg` — included in the memories gallery with a forever-holding-hands caption.
