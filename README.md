@@ -28,4 +28,4 @@ The homepage includes a live counter from 14 November 2025 (midnight in each vis
 
 
 New photo added: `assets/holding-hands.jpg` — included in the memories gallery with a forever-holding-hands caption.
-\n\nAdded eight new gallery memories: four photos and four conversation screenshots, with captions. Keep all files in `assets/` when uploading to GitHub Pages.\n
+\n\nAdded eight new gallery memories: four photos and four conversation screenshots, with captions. Keep all files in `assets/` when uploading to GitHub Pages.\n\nGallery layout refreshed: photos now use a responsive three-column grid (two on tablets, one on phones), while chat screenshots sit in a separate two-column conversation archive and preserve their full portrait framing.\n

@@ -472,3 +472,93 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 .interrupt-pop { animation:interruptPop .45s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes interruptPop { from { opacity:0; transform:translateY(16px) scale(.97); } to { opacity:1; transform:translateY(0) scale(1); } }
 @media(max-width:650px) { .open-when-grid { grid-template-columns:1fr; } .boyfriend-interruption { right:12px; bottom:12px; } }
+
+
+/* Gallery refresh: tidy responsive photo grid + separate chat archive */
+.photo-gallery,
+.conversation-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin: 34px auto 0;
+  text-align: left;
+}
+.memory {
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 14px 36px rgba(8,5,27,.24);
+}
+.photo-gallery .memory img {
+  width: 100%;
+  height: 300px;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+  background: #171224;
+}
+.photo-gallery .memory:nth-child(2) img,
+.photo-gallery .memory:nth-child(8) img {
+  object-position: center 38%;
+}
+.memory figcaption {
+  flex: 1;
+  padding: 20px 21px 22px;
+}
+.memory figcaption strong {
+  font-size: 1.18rem;
+}
+.memory figcaption p {
+  line-height: 1.65;
+}
+.conversation-heading {
+  max-width: 760px;
+  margin: 64px auto 0;
+  text-align: center;
+}
+.conversation-heading h3 {
+  margin: 8px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+}
+.conversation-heading h3 em {
+  color: var(--accent, #e9a9c6);
+}
+.conversation-gallery {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+}
+.chat-memory img {
+  width: 100%;
+  height: 560px;
+  max-height: 560px;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top;
+  background: #08090b;
+  padding: 8px;
+}
+.chat-memory figcaption {
+  background: #fff9f2;
+}
+@media (max-width: 900px) {
+  .photo-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .conversation-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .photo-gallery,
+  .conversation-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .photo-gallery .memory img { height: 330px; }
+  .chat-memory img { height: min(145vw, 620px); max-height: 620px; }
+  .conversation-heading { margin-top: 48px; padding: 0 8px; }
+  .memory figcaption { padding: 18px 19px 20px; }
+}
