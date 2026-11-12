@@ -562,3 +562,54 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
   .conversation-heading { margin-top: 48px; padding: 0 8px; }
   .memory figcaption { padding: 18px 19px 20px; }
 }
+
+
+/* Five gentle chapters: clearer pacing without changing the original story */
+.chapter {
+  position: relative;
+  isolation: isolate;
+  padding: 28px clamp(16px, 3vw, 42px) 38px;
+  margin: 24px auto 42px;
+  max-width: 1240px;
+  border: 1px solid rgba(232, 190, 218, .12);
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(255,255,255,.025), rgba(20,14,39,.14));
+  box-shadow: 0 22px 60px rgba(4, 3, 15, .13);
+}
+.chapter-heading {
+  max-width: 760px;
+  margin: 0 auto 12px;
+  padding: 12px 12px 24px;
+  text-align: center;
+}
+.chapter-heading span {
+  display: inline-block;
+  color: #e6b7d0;
+  font-size: .7rem;
+  font-weight: 750;
+  letter-spacing: .2em;
+}
+.chapter-heading p {
+  margin: 9px auto 0;
+  color: rgba(255,245,249,.68);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+.chapter > .section {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+.chapter > .section:last-child { margin-bottom: 0; }
+.chapter-beginning { border-color: rgba(224,190,225,.18); }
+.chapter-favourite { background: linear-gradient(145deg, rgba(196,133,174,.045), rgba(20,14,39,.12)); }
+.chapter-distance { background: linear-gradient(145deg, rgba(115,120,180,.055), rgba(20,14,39,.12)); }
+.chapter-dreams { background: linear-gradient(145deg, rgba(224,171,112,.055), rgba(20,14,39,.12)); }
+.chapter-ending { background: linear-gradient(145deg, rgba(199,163,116,.055), rgba(20,14,39,.12)); }
+.chapter-ending .kintsugi-section,
+.chapter-ending .letter-section,
+.chapter-ending .scripture,
+.chapter-ending .future { padding-top: clamp(28px, 4vw, 56px); padding-bottom: clamp(28px, 4vw, 56px); }
+@media (max-width: 640px) {
+  .chapter { padding: 18px 12px 24px; margin: 16px 8px 28px; border-radius: 22px; }
+  .chapter-heading { padding: 8px 8px 18px; }
+}

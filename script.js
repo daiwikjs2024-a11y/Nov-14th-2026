@@ -185,7 +185,7 @@ if (noteButton) {
   function schedule() { timer = window.setTimeout(() => {
     if (!document.hidden) { message.textContent = lines[Math.floor(Math.random() * lines.length)]; panel.hidden = false; panel.classList.remove('interrupt-pop'); void panel.offsetWidth; panel.classList.add('interrupt-pop'); }
     schedule();
-  }, 55000); }
+  }, 150000); }
   close.addEventListener('click', () => { panel.hidden = true; });
   // First interruption comes after a little browsing time, never immediately on arrival.
   schedule();
