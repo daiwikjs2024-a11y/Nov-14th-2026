@@ -615,56 +615,72 @@ footer{border-top:1px solid var(--line);padding:26px 28px;display:flex;align-ite
 }
 
 
-/* Little cat interruptions — scattered beside the words, never a second gallery */
+/* Little cat interruptions — consistently framed, scaled and captioned */
 .cat-aside {
-  width: min(31%, 190px);
-  margin: 0.35rem 0 1rem 1.25rem;
+  box-sizing: border-box;
+  width: min(30%, 190px);
+  margin: 0.45rem 0 1.15rem 1.25rem;
   padding: 0.55rem;
   float: right;
   position: relative;
   z-index: 1;
-  border: 1px solid rgba(221, 184, 211, 0.38);
-  border-radius: 18px;
-  background: rgba(255, 248, 253, 0.72);
-  box-shadow: 0 10px 28px rgba(35, 15, 48, 0.13);
-  transform: rotate(1.5deg);
+  border: 1px solid rgba(221, 184, 211, 0.48);
+  border-radius: 17px;
+  background: rgba(255, 248, 253, 0.94);
+  box-shadow: 0 8px 22px rgba(35, 15, 48, 0.12);
+  transform: rotate(1deg);
+  overflow: hidden;
 }
 .cat-aside.cat-left {
   float: left;
-  margin: 0.35rem 1.25rem 1rem 0;
-  transform: rotate(-1.5deg);
+  margin: 0.45rem 1.25rem 1.15rem 0;
+  transform: rotate(-1deg);
 }
 .cat-aside img {
   display: block;
+  box-sizing: border-box;
   width: 100%;
-  height: auto;
-  max-height: 220px;
+  height: 145px;
   object-fit: contain;
-  border-radius: 12px;
+  object-position: center;
+  border-radius: 11px;
+  background: rgba(238, 226, 239, 0.55);
 }
-.cat-aside figcaption {
-  padding: 0.45rem 0.25rem 0.15rem;
+.cat-aside .cat-caption {
+  margin: 0;
+  padding: 0.55rem 0.2rem 0.12rem;
   color: var(--muted, #715c78);
-  font-size: 0.78rem;
-  line-height: 1.45;
+  font-size: 0.76rem;
+  line-height: 1.4;
   text-align: center;
+  overflow-wrap: anywhere;
 }
 .cat-aside::after {
   content: "♡";
   position: absolute;
-  top: -11px;
-  right: -7px;
+  top: 3px;
+  right: 8px;
   color: #d58ab6;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  text-shadow: 0 1px 4px rgba(255,255,255,.9);
+  pointer-events: none;
 }
-.cat-crying { width: min(34%, 205px); }
-@media (max-width: 640px) {
+.cat-crying { width: min(32%, 205px); }
+@media (max-width: 760px) {
   .cat-aside, .cat-aside.cat-left, .cat-crying {
-    width: min(43%, 150px);
-    margin: 0.25rem 0 0.75rem 0.8rem;
-    padding: 0.4rem;
+    width: min(42%, 158px);
+    margin: 0.3rem 0 0.8rem 0.75rem;
+    padding: 0.42rem;
   }
-  .cat-aside.cat-left { margin: 0.25rem 0.8rem 0.75rem 0; }
-  .cat-aside img { max-height: 175px; }
-  .cat-aside figcaption { font-size: 0.7rem; }
+  .cat-aside.cat-left { margin: 0.3rem 0.75rem 0.8rem 0; }
+  .cat-aside img { height: 116px; }
+  .cat-aside .cat-caption { font-size: 0.69rem; line-height: 1.35; padding-top: 0.42rem; }
+}
+@media (max-width: 380px) {
+  .cat-aside, .cat-aside.cat-left, .cat-crying {
+    width: min(44%, 138px);
+    padding: 0.35rem;
+  }
+  .cat-aside img { height: 100px; }
+  .cat-aside .cat-caption { font-size: 0.64rem; }
 }
